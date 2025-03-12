@@ -1,0 +1,9 @@
+GET http://localhost:6060/downloads
+
+###
+POST http://localhost:6060/add
+Content-Type: application/json
+
+{
+  "url": "https://files.testfile.org/Video%20MP4%2FBike%20-%20testfile.org.mp4"
+}

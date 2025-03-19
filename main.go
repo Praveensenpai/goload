@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"mime"
 	"net/http"
 	"net/url"
@@ -37,7 +38,7 @@ func init() {
 	os.MkdirAll(downloadDir, 0755)
 	err := os.RemoveAll(downloadDir)
 	if err != nil {
-		fmt.Println("Error clearing GoLoad directory:", err)
+		log.Println("Error clearing GoLoad directory:", err)
 	}
 	os.MkdirAll(filepath.Join(downloadDir, "temp"), 0755)
 }
@@ -223,6 +224,6 @@ func main() {
 	r.GET("/downloads", getDownloads)
 	r.DELETE("/clear_failed", clearFailed)
 
-	fmt.Printf("GoLoad server running on http://localhost:%d 🚀 \n", PORT)
+	log.Printf("GoLoad server running on http://localhost:%d 🚀 \n", PORT)
 	r.Run(fmt.Sprintf(":%d", PORT))
 }
